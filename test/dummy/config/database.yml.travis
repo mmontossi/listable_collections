@@ -1,5 +1,5 @@
 mysql: &mysql
-  adapter: <%= 'jdbc' if RUBY_ENGINE == 'jruby' %>mysql
+  adapter: <%= 'jdbc' if RUBY_ENGINE == 'jruby' %>mysql<%= '2' if RUBY_ENGINE != 'jruby' %>
 
 postgres: &postgres
   adapter: <%= 'jdbc' if RUBY_ENGINE == 'jruby' %>postgresql
