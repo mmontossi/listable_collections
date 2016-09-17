@@ -4,9 +4,9 @@ script:
   - bundle install
   - bundle exec rake db:setup test
 env:
-  - RAILS_VERSION=4.0.0
-  - RAILS_VERSION=4.1.0
-  - RAILS_VERSION=4.2.0
+  matrix:
+    - DATABASE=mysql2
+    - DATABASE=postgresql
 rvm:
   - 2.1.0
   - 2.2.0
@@ -15,6 +15,10 @@ rvm:
   - jruby
 matrix:
   fast_finish: true
+  include:
+    - RAILS_VERSION=4.0.0
+    - RAILS_VERSION=4.1.0
+    - RAILS_VERSION=4.2.0
   allow_failures:
     - rvm: rbx
     - rvm: jruby
