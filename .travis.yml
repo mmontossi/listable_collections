@@ -1,6 +1,7 @@
 language: ruby
 sudo: false
 script:
+  - bundle install
   - bundle exec rake db:setup test
 env:
   - RAILS_VERSION=4.0.0
