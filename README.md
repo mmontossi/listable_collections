@@ -77,6 +77,10 @@ class Shop < ActiveRecord::Base
 end
 ```
 
+## Maintenance
+
+Because we've limited resources we'll mainly add features and keep a compatibility range close to what we need in our projects. However, contributions are more than welcome if someone wants to help improve and extend the gem.
+
 ## Credits
 
 This gem is maintained and funded by [mmontossi](https://github.com/mmontossi).
