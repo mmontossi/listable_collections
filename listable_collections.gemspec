@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', (ENV['RAILS_VERSION'] ? "~> #{ENV['RAILS_VERSION']}" : ['>= 4.2.0', '< 4.3.0'])
 
-  s.add_development_dependency 'mocha'
-  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'mocha', '~> 1.1'
+  s.add_development_dependency 'sqlite3', '~> 1.3'
 end
