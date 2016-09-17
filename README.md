@@ -31,7 +31,7 @@ class Shop < ActiveRecord::Base
 end
 ```
 
-The gem will not touch the associated records but will track the changes using "removed_from_list" and "added_to_list" helpers:
+Associated records won't be touched but changes will be tracked using "removed_from_list" and "added_to_list" helpers:
 ```ruby
 shop.products.map(&:name) => ['iPhone']
 shop.product_list => 'iPhone'
@@ -51,7 +51,7 @@ class Product < ActiveRecord::Base
 end
 ```
 
-The gem will automatically sync the values of the attribute and track the changes using "removed_from_list" and "added_to_list" helpers:
+The attribute will be synced and chances will be tracked using "removed_from_list" and "added_to_list" helpers:
 ```ruby
 shop.sizes => ['64GB']
 shop.size_list => '64GB'
@@ -63,7 +63,7 @@ shop.added_sizes_to_list => ['128GB']
 shop.removed_sizes_from_list => ['64GB']
 ```
 
-In some cases you may need to run some logic after the list changes, in that case you can use the "after_add" and "after_remove" callbacks:
+In some cases you may need to run some logic after changes, use the "after_add" and "after_remove" callbacks for it:
 ```ruby
 class Shop < ActiveRecord::Base
   has_many :product
@@ -75,10 +75,7 @@ class Shop < ActiveRecord::Base
     # Some logic
   end
 end
-
-## Usage
-
-If you listed an association:
+```
 
 ## Credits
 
