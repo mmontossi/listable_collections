@@ -63,7 +63,7 @@ shop.added_sizes_to_list => ['128GB']
 shop.removed_sizes_from_list => ['64GB']
 ```
 
-In some cases you may need to run some logic after changes, use the "after_add" and "after_remove" callbacks for it:
+In some cases you may need to run some logic after changes, you can use "after_add" and "after_remove" callbacks:
 ```ruby
 class Shop < ActiveRecord::Base
   has_many :product
