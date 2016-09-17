@@ -1,7 +1,7 @@
 language: ruby
 sudo: false
 before_script:
-  - bundle exec db:test:prepare
+  - bundle exec rake db:test:prepare
 script:
   - bundle exec rake test
 env:
