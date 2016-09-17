@@ -65,7 +65,7 @@ module ListableCollections
                 record.send options[:attribute]
               end
             end
-            values.reverse.join(',')
+            values.join(',')
           end
         end
       end

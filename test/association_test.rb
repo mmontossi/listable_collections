@@ -10,7 +10,7 @@ class AssociationTest < ActiveSupport::TestCase
     apple.expects(:product_added).never
     apple.expects(:product_removed).never
     apple.products << imac
-    assert_equal 'iMac,iPhone,iPad', apple.product_list
+    assert_equal 'iPhone,iPad,iMac', apple.product_list
     assert_equal [], apple.added_products_to_list
     assert_equal [], apple.removed_products_from_list
 
