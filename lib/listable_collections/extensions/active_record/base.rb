@@ -4,7 +4,7 @@ module ListableCollections
       module Base
         extend ActiveSupport::Concern
 
-        class_methods do
+        module ClassMethods do
 
           def lists(*args)
             options = args.extract_options!
