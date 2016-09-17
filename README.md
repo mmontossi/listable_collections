@@ -53,17 +53,17 @@ end
 
 The attribute will be synced and chances will be tracked using "removed_from_list" and "added_to_list" helpers:
 ```ruby
-shop.sizes => ['64GB']
-shop.size_list => '64GB'
+product.sizes => ['64GB']
+product.size_list => '64GB'
 
-shop.size_list = '32GB,128GB'
-shop.sizes => ['32GB','128GB']
+product.size_list = '32GB,128GB'
+product.sizes => ['32GB','128GB']
 
-shop.added_sizes_to_list => ['128GB']
-shop.removed_sizes_from_list => ['64GB']
+product.added_sizes_to_list => ['128GB']
+product.removed_sizes_from_list => ['64GB']
 ```
 
-In some cases you may need to run some logic after changes, you can use "after_add" and "after_remove" callbacks:
+In some cases you may need to run some logic after changes, you can use "after_add" and "after_remove" callbacks for it:
 ```ruby
 class Shop < ActiveRecord::Base
   has_many :product
