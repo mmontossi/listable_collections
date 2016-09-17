@@ -79,7 +79,7 @@ end
 
 ## Contributing
 
-Because we've limited resources we'll mainly add features and keep a compatibility range close to what we need in our projects. However, contributions are more than welcome if someone wants to help improve the gem.
+Because we've limited resources we'll mainly add features and keep a compatibility range close to what we need in our projects. However, contributions are more than welcome if someone wants to improve the gem.
 
 ## Credits
 
