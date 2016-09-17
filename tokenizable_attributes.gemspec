@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ['mmontossi@buyin.io']
   s.homepage    = 'https://github.com/mmontossi/listable_collections'
   s.summary     = 'Listable collections for rails.'
-  s.description = 'Minimalistic listable collections for rails.'
+  s.description = 'Makes collections accessible from a string list in rails.'
   s.license     = 'MIT'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
