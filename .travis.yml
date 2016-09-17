@@ -1,7 +1,8 @@
 language: ruby
 sudo: false
-gemfile: Gemfile.ci
+gemfile: Gemfile.travis
 script:
+  - mv test/dummy/config/database.yml.travis test/dummy/config/database.yml
   - bundle exec rake db:setup test
 env:
   - RAILS=4.0.0 DB=mysql2
