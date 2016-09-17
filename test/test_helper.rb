@@ -19,3 +19,7 @@ if ActiveSupport::TestCase.respond_to?(:fixture_path=)
   ActionDispatch::IntegrationTest.fixture_path = ActiveSupport::TestCase.fixture_path
   ActiveSupport::TestCase.fixtures :all
 end
+
+if Rails::VERSION::MAJOR == 4 && Rails::VERSION::MINOR < 1
+  load File.expand_path('../dummy/db/schema.rb', __FILE__)
+end
