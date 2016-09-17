@@ -21,13 +21,13 @@ $ bundle
 
 ## Usage
 
-Use "lists" method in your models to define what collections will be listed:
+Use "list" method in your models to define what collections will be listed:
 
 If you want to list an association:
 ```ruby
 class Shop < ActiveRecord::Base
   has_many :products
-  lists :products, attribute: :name
+  list :products, attribute: :name
 end
 ```
 
@@ -47,7 +47,7 @@ If you want to list an array attribute:
 ```ruby
 class Product < ActiveRecord::Base
   serialize :sizes, Array
-  lists :sizes
+  list :sizes
 end
 ```
 
@@ -67,7 +67,7 @@ In some cases you may need to run some logic after changes, you can use "after_a
 ```ruby
 class Shop < ActiveRecord::Base
   has_many :product
-  lists :products, attribute: :name, after_add: :product_added, after_remove: :product_removed
+  list :products, attribute: :name, after_add: :product_added, after_remove: :product_removed
   def product_added(name)
     # Some logic
   end
