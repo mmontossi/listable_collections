@@ -1,15 +1,15 @@
 language: ruby
 sudo: false
-gemfile: .travis.gemfile
+gemfile: Gemfile.ci
 script:
   - bundle exec rake db:setup test
-rails:
-  - 4.0.0
-  - 4.1.0
-  - 4.2.0
-database:
-  - mysql2
-  - postgresl
+env:
+  - RAILS=4.0.0 DB=mysql2
+  - RAILS=4.1.0 DB=mysql2
+  - RAILS=4.2.0 DB=mysql2
+  - RAILS=4.0.0 DB=postgresql
+  - RAILS=4.1.0 DB=postgresql
+  - RAILS=4.2.0 DB=postgresql
 rvm:
   - 2.1.0
   - 2.2.0
