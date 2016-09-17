@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160916011451) do
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", force: true do |t|
     t.integer  "shop_id"
     t.string   "name"
     t.text     "sizes"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160916011451) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "shops", force: :cascade do |t|
+  create_table "shops", force: true do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
