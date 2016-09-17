@@ -1,7 +1,8 @@
 language: ruby
 sudo: false
+before_install:
+  - "rm ${BUNDLE_GEMFILE}.lock"
 script:
-  - bundle install
   - bundle exec rake db:setup test
 env:
   matrix:
