@@ -6,12 +6,12 @@ before_install:
 script:
   - bundle exec rake db:setup test
 env:
-  - RAILS=4.0.0 DB=mysql2
-  - RAILS=4.1.0 DB=mysql2
-  - RAILS=4.2.0 DB=mysql2
-  - RAILS=4.0.0 DB=postgresql
-  - RAILS=4.1.0 DB=postgresql
-  - RAILS=4.2.0 DB=postgresql
+  - RAILS=4.0.0 DB=mysql
+  - RAILS=4.1.0 DB=mysql
+  - RAILS=4.2.0 DB=mysql
+  - RAILS=4.0.0 DB=postgres
+  - RAILS=4.1.0 DB=postgres
+  - RAILS=4.2.0 DB=postgres
 rvm:
   - 2.1.0
   - 2.2.0

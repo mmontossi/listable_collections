@@ -1,10 +1,16 @@
+mysql: &mysql
+  adapter: <%= 'jdbc' if RUBY_ENGINE == 'jruby' %>mysql
+
+postgres: &postgres
+  adapter: <%= 'jdbc' if RUBY_ENGINE == 'jruby' %>postgresql
+
 default: &default
-  adapter: <%= ENV['DB'] %>
+  <<: *<%= ENV['DB'] %>
 
 development:
   <<: *default
-  database: listable_collections_development
+  database: travis
 
 test:
   <<: *default
-  database: listable_collections_test
+  database: travis
