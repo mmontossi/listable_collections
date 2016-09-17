@@ -1,17 +1,15 @@
 language: ruby
 sudo: false
 gemfile: .travis.gemfile
-before_install:
-  - "rm ${BUNDLE_GEMFILE}.lock"
 script:
   - bundle exec rake db:setup test
-env:
-  matrix:
-    - RAILS_VERSION=4.0.0
-    - RAILS_VERSION=4.1.0
-    - RAILS_VERSION=4.2.0
-    - DATABASE=mysql2
-    - DATABASE=postgresl
+rails:
+  - 4.0.0
+  - 4.1.0
+  - 4.2.0
+database:
+  - mysql2
+  - postgresl
 rvm:
   - 2.1.0
   - 2.2.0
