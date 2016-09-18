@@ -17,10 +17,10 @@ end
 platforms :jruby do
   case ENV['DB']
   when 'mysql'
-    gem 'jdbc-mysql'
-  when 'postgre'
-    gem 'jdbc-postgres'
+    gem 'activerecord-jdbc-mysql'
+  when 'postgres'
+    gem 'activerecord-jdbc-postgres'
   when 'sqlite'
-    gem 'jdbc-sqlite3'
+    gem 'activerecord-jdbc-sqlite3'
   end
 end
