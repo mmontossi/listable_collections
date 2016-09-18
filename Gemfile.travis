@@ -19,7 +19,7 @@ platforms :jruby do
   when 'mysql'
     gem 'activerecord-jdbcmysql-adapter'
   when 'postgres'
-    gem 'activerecord-jdbcpostgres-adapter'
+    gem 'activerecord-jdbcpostgresql-adapter'
   when 'sqlite'
     gem 'activerecord-jdbcsqlite3-adapter'
   end
