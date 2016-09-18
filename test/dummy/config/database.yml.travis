@@ -7,13 +7,6 @@ postgres: &postgres
 sqlite: &sqlite
   adapter: <%= 'jdbc' if RUBY_ENGINE == 'jruby' %>sqlite3
 
-default: &default
-  <<: *<%= ENV['DB'] %>
-
-development:
-  <<: *default
-  database: travis
-
 test:
-  <<: *default
-  database: travis
+  <<: *<%= ENV['DB'] %>
+  database: <%= ENV['DB'] == 'sqlite' ? 'db/travis.sqlite3' : 'travis' %>
