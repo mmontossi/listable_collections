@@ -20,10 +20,10 @@ rvm:
   - 2.1.0
   - 2.2.0
   - 2.3.0
-  - rbx-3
-  - jruby-9
+  - rbx-head
+  - jruby-head
 matrix:
   fast_finish: true
   allow_failures:
-    - rvm: rbx-3
-    - rvm: jruby-9
+    - rvm: rbx-head
+    - rvm: jruby-head
