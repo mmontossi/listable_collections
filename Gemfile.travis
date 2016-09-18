@@ -9,6 +9,8 @@ platforms :ruby do
     gem 'mysql2', '~> 0.3.18'
   when 'postgres'
     gem 'pg'
+  when 'sqlite'
+    gem 'sqlite3'
   end
 end
 
@@ -18,5 +20,7 @@ platforms :jruby do
     gem 'jdbc-mysql'
   when 'postgre'
     gem 'jdbc-postgres'
+  when 'sqlite'
+    gem 'jdbc-sqlite3'
   end
 end

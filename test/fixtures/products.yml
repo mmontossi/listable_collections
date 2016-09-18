@@ -1,6 +1,8 @@
 iphone:
-  shop: apple
+  id: 1
+  shop_id: 1
   name: iPhone
 ipad:
-  shop: apple
+  id: 2
+  shop_id: 1
   name: iPad

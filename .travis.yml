@@ -12,6 +12,9 @@ env:
   - RAILS=4.0.0 DB=postgres
   - RAILS=4.1.0 DB=postgres
   - RAILS=4.2.0 DB=postgres
+  - RAILS=4.0.0 DB=sqlite
+  - RAILS=4.1.0 DB=sqlite
+  - RAILS=4.2.0 DB=sqlite
 rvm:
   - 2.1.0
   - 2.2.0

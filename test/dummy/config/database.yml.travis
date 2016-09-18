@@ -4,6 +4,9 @@ mysql: &mysql
 postgres: &postgres
   adapter: <%= 'jdbc' if RUBY_ENGINE == 'jruby' %>postgresql
 
+sqlite: &sqlite
+  adapter: <%= 'jdbc' if RUBY_ENGINE == 'jruby' %>sqlite3
+
 default: &default
   <<: *<%= ENV['DB'] %>
 
