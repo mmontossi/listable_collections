@@ -28,16 +28,16 @@ module ListableCollections
     def define_list_writer(name, variable, attribute, options)
       model.class_eval do
         define_method "#{name}=" do |value|
-          list = value.split(',').reject(&:blank?).map(&:strip).join(',')
           current_values = send(name).split(',')
-          new_values = list.split(',')
+          new_values = value.split(',').reject(&:blank?).map(&:strip)
+          value = ((current_values & new_values) + (new_values - current_values))
           if current_values.sort != new_values.sort
             if options.has_key?(:attribute)
               attribute_will_change! name
-              instance_variable_set variable, list
+              instance_variable_set variable, value.join(',')
             else
               attribute_will_change! name
-              send "#{attribute}=", list.split(',')
+              send "#{attribute}=", value
             end
             if options.has_key?(:after_add)
               (new_values - current_values).each do |added_value|
