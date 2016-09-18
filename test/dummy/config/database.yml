@@ -1,10 +1,3 @@
-default: &default
-  adapter: postgresql
-
-development:
-  <<: *default
-  database: listable_collections_development
-
 test:
-  <<: *default
+  adapter: postgresql
   database: listable_collections_test
