@@ -26,8 +26,11 @@ Use "list" method in your models to define what collections will be listed:
 If you want to list an association:
 ```ruby
 class Shop < ActiveRecord::Base
+
   has_many :products
+
   list :products, attribute: :name
+
 end
 ```
 
@@ -46,8 +49,11 @@ shop.removed_products_from_list => ['iPod']
 If you want to list an array attribute:
 ```ruby
 class Product < ActiveRecord::Base
+
   serialize :sizes, Array
+
   list :sizes
+
 end
 ```
 
@@ -66,14 +72,19 @@ product.removed_sizes_from_list => ['64GB']
 In some cases you may need to run some logic after changes, you can use "after_add" and "after_remove" callbacks for it:
 ```ruby
 class Shop < ActiveRecord::Base
+
   has_many :product
+
   list :products, attribute: :name, after_add: :product_added, after_remove: :product_removed
+
   def product_added(name)
     # Some logic
   end
+
   def product_removed(name)
     # Some logic
   end
+
 end
 ```
 
