@@ -21,9 +21,9 @@ $ bundle
 
 ## Usage
 
-Use "list" method in your models to define what collections will be listed:
+### Associations
 
-If you want to list an association:
+If you want to list a has_many association:
 ```ruby
 class Shop < ActiveRecord::Base
 
@@ -34,7 +34,7 @@ class Shop < ActiveRecord::Base
 end
 ```
 
-Associated records won't be touched but changes will be tracked using "removed_from_list" and "added_to_list" helpers:
+Associated records won't be touched but changes will be tracked using the following helpers:
 ```ruby
 shop.products.map(&:name) => ['iPhone']
 shop.product_list => 'iPhone'
@@ -45,6 +45,8 @@ shop.products.map(&:name) => ['iPhone']
 shop.added_products_to_list => ['iMac']
 shop.removed_products_from_list => ['iPod']
 ```
+
+### Attributes
 
 If you want to list an array attribute:
 ```ruby
@@ -57,7 +59,7 @@ class Product < ActiveRecord::Base
 end
 ```
 
-The attribute will be synced and chances will be tracked using "removed_from_list" and "added_to_list" helpers:
+The attribute will be synced and chances will be tracked using the following helpers:
 ```ruby
 product.sizes => ['64GB']
 product.size_list => '64GB'
@@ -69,7 +71,7 @@ product.added_sizes_to_list => ['128GB']
 product.removed_sizes_from_list => ['64GB']
 ```
 
-In some cases you may need to run some logic after changes, you can use "after_add" and "after_remove" callbacks for it:
+In some cases you may need to run some logic after changes, you can use callbacks for it:
 ```ruby
 class Shop < ActiveRecord::Base
 
