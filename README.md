@@ -46,6 +46,8 @@ shop.added_products_to_list => ['iMac']
 shop.removed_products_from_list => ['iPod']
 ```
 
+NOTE: Because detecting wich record has been removed by an attribute will fire multiple queries, is recommended do this check before save all at once and not dynamically.
+
 ### Attributes
 
 If you want to list an array attribute:
