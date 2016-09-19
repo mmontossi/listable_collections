@@ -19,8 +19,8 @@ module ListableCollections
       model.define_attribute_method name
       define_list_writer name, variable, attribute, options
       define_list_reader name, variable, attribute, options
-      define_added_to_list_reader plural, name, was
-      define_removed_from_list_reader plural, name, was
+      define_added_to_list plural, name, was
+      define_removed_from_list plural, name, was
     end
 
     private
@@ -71,7 +71,7 @@ module ListableCollections
       end
     end
 
-    def define_added_to_list_reader(plural, name, was)
+    def define_added_to_list(plural, name, was)
       model.class_eval do
         define_method "added_#{plural}_to_list" do
           send(name).split(',') - send(was).split(',')
@@ -79,7 +79,7 @@ module ListableCollections
       end
     end
 
-    def define_removed_from_list_reader(plural, name, was)
+    def define_removed_from_list(plural, name, was)
       model.class_eval do
         define_method "removed_#{plural}_from_list" do
           send(was).split(',') - send(name).split(',')
