@@ -2,23 +2,23 @@ require 'test_helper'
 
 class AttributeTest < ActiveSupport::TestCase
 
-  test 'accessor' do
-    iphone = products(:iphone)
-    assert_equal '', iphone.size_list
+  test 'methods' do
+    product = Product.new
+    assert_equal '', product.size_list
 
-    iphone.expects(:size_added).never
-    iphone.expects(:size_removed).never
-    iphone.sizes << '64GB'
-    assert_equal '64GB', iphone.size_list
-    assert_equal [], iphone.added_sizes_to_list
-    assert_equal [], iphone.removed_sizes_from_list
+    product.expects(:size_added).never
+    product.expects(:size_removed).never
+    product.sizes << '64GB'
+    assert_equal '64GB', product.size_list
+    assert_equal [], product.added_sizes_to_list
+    assert_equal [], product.removed_sizes_from_list
 
-    iphone.expects(:size_added).once.with('32GB')
-    iphone.expects(:size_removed).once.with('64GB')
-    iphone.size_list = '32GB'
-    assert_equal '32GB', iphone.size_list
-    assert_equal ['32GB'], iphone.added_sizes_to_list
-    assert_equal ['64GB'], iphone.removed_sizes_from_list
+    product.expects(:size_added).once.with('32GB')
+    product.expects(:size_removed).once.with('64GB')
+    product.size_list = '32GB'
+    assert_equal '32GB', product.size_list
+    assert_equal ['32GB'], product.added_sizes_to_list
+    assert_equal ['64GB'], product.removed_sizes_from_list
   end
 
 end
