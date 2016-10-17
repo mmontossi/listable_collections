@@ -13,9 +13,6 @@ module ListableCollections
       name = "#{singular}_list"
       variable = "@#{name}"
       was = "#{name}_was"
-      if Rails::VERSION::MAJOR == 4 && Rails::VERSION::MINOR < 2
-        model.skip_time_zone_conversion_for_attributes << name.to_sym
-      end
       model.define_attribute_method name
       define_list_writer name, variable, attribute, options
       define_list_reader name, variable, attribute, options

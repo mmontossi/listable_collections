@@ -1,3 +1,7 @@
+development:
+  adapter: postgresql
+  database: listable_collections_development
+
 test:
   adapter: postgresql
-  database: listable_collections
+  database: listable_collections_test
