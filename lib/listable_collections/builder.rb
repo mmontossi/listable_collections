@@ -1,10 +1,11 @@
 module ListableCollections
   class Builder
 
-    attr_reader :model
+    attr_reader :model, :concern
 
     def initialize(model)
       @model = model
+      @concern = Module.new
     end
 
     def define(attribute, options)
@@ -18,12 +19,13 @@ module ListableCollections
       define_list_reader name, variable, attribute, options
       define_added_to_list plural, name, was
       define_removed_from_list plural, name, was
+      model.include concern
     end
 
     private
 
     def define_list_writer(name, variable, attribute, options)
-      model.class_eval do
+      concern.class_eval do
         define_method "#{name}=" do |value|
           current_values = send(name).split(',')
           new_values = value.split(',').reject(&:blank?).map(&:strip)
@@ -52,7 +54,7 @@ module ListableCollections
     end
 
     def define_list_reader(name, variable, attribute, options)
-      model.class_eval do
+      concern.class_eval do
         define_method name do
           if list = instance_variable_get(variable)
             list
@@ -69,7 +71,7 @@ module ListableCollections
     end
 
     def define_added_to_list(plural, name, was)
-      model.class_eval do
+      concern.class_eval do
         define_method "added_#{plural}_to_list" do
           send(name).split(',') - send(was).split(',')
         end
@@ -77,7 +79,7 @@ module ListableCollections
     end
 
     def define_removed_from_list(plural, name, was)
-      model.class_eval do
+      concern.class_eval do
         define_method "removed_#{plural}_from_list" do
           send(was).split(',') - send(name).split(',')
         end
