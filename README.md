@@ -9,6 +9,8 @@ Makes collections accessible from a string list in rails.
 
 ## Why
 
+I did this gem to:
+
 - Easily manage collections from input text field.
 - Track changes like dirty module in activerecord.
 - Have callbacks like has_many associations.
