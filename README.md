@@ -7,6 +7,12 @@
 
 Makes collections accessible from a string list in rails.
 
+## Why
+
+- Easily manage collections from input text field.
+- Track changes like dirty module in activerecord.
+- Have callbacks like has_many associations.
+
 ## Install
 
 Put this line in your Gemfile:
@@ -46,7 +52,7 @@ shop.added_products_to_list => ['iMac']
 shop.removed_products_from_list => ['iPod']
 ```
 
-NOTE: Because detecting wich record has been removed by an attribute will fire multiple queries, is recommended do this check before save all at once and not dynamically.
+NOTE: Is recommended do this check before save all at once and not dynamically to avoid multiple queries.
 
 ### Attributes
 
@@ -91,10 +97,6 @@ class Shop < ActiveRecord::Base
 
 end
 ```
-
-## Contributing
-
-Because we've limited resources we'll mainly add features and keep a compatibility range close to what we need in our projects. However, contributions are more than welcome if someone wants to make any improvement.
 
 ## Credits
 
