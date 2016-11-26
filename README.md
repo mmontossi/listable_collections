@@ -54,7 +54,7 @@ shop.added_products_to_list => ['iMac']
 shop.removed_products_from_list => ['iPod']
 ```
 
-NOTE: Is recommended do this check before save all at once and not dynamically to avoid multiple queries.
+NOTE: Is recommended to do this check before save all at once and not dynamically to avoid multiple queries.
 
 ### Attributes
 
