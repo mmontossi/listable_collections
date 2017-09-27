@@ -14,7 +14,7 @@ module ListableCollections
       name = "#{singular}_list"
       variable = "@#{name}"
       was = "#{name}_was"
-      model.define_attribute_method name
+      model.attribute name
       define_list_writer name, variable, attribute, options
       define_list_reader name, variable, attribute, options
       define_added_to_list plural, name, was

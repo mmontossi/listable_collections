@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.name        = 'listable_collections'
   s.version     = ListableCollections::VERSION
   s.authors     = ['mmontossi']
-  s.email       = ['mmontossi@museways.com']
-  s.homepage    = 'https://github.com/mmontossi/listable_collections'
+  s.email       = ['hi@museways.com']
+  s.homepage    = 'https://github.com/museways/listable_collections'
   s.summary     = 'Listable collections for rails.'
   s.description = 'Makes collections accessible from a string list in rails.'
   s.license     = 'MIT'

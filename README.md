@@ -1,7 +1,7 @@
 [![Gem Version](https://badge.fury.io/rb/listable_collections.svg)](http://badge.fury.io/rb/listable_collections)
-[![Code Climate](https://codeclimate.com/github/mmontossi/listable_collections/badges/gpa.svg)](https://codeclimate.com/github/mmontossi/listable_collections)
-[![Build Status](https://travis-ci.org/mmontossi/listable_collections.svg)](https://travis-ci.org/mmontossi/listable_collections)
-[![Dependency Status](https://gemnasium.com/mmontossi/listable_collections.svg)](https://gemnasium.com/mmontossi/listable_collections)
+[![Code Climate](https://codeclimate.com/github/museways/listable_collections/badges/gpa.svg)](https://codeclimate.com/github/museways/listable_collections)
+[![Build Status](https://travis-ci.org/museways/listable_collections.svg)](https://travis-ci.org/museways/listable_collections)
+[![Dependency Status](https://gemnasium.com/museways/listable_collections.svg)](https://gemnasium.com/museways/listable_collections)
 
 # Listable collections
 
@@ -108,7 +108,7 @@ I will mainly ensure compatibility to Rails, AWS, PostgreSQL, Redis, Elasticsear
 
 ## Credits
 
-This gem is maintained and funded by [mmontossi](https://github.com/mmontossi).
+This gem is maintained and funded by [museways](https://github.com/museways).
 
 ## License
 
