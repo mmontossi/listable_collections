@@ -57,7 +57,7 @@ product.added_tags_to_list => ['Natural']
 product.removed_tags_from_list => ['New']
 ```
 
-NOTE: The gem will handle automatically creation/deletion if you use a has many through association.
+NOTE: All associations are assumed to be has many through in to be able to handle creations/deletions.
 
 ### Attributes
 
