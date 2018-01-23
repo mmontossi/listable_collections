@@ -57,7 +57,7 @@ product.added_tags_to_list => ['Natural']
 product.removed_tags_from_list => ['New']
 ```
 
-NOTE: All associations are assumed to be has many through in to be able to handle creations/deletions.
+NOTE: All associations are assumed to be has many through to be able to handle creations/deletions.
 
 ### Attributes
 
