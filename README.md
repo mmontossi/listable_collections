@@ -39,7 +39,7 @@ class Product < ApplicationRecord
   has_many :tagizations
   has_many :tags, through: :tagizations
 
-  listify :products, by: :name
+  listify :tags, by: :name
 
 end
 ```
