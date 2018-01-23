@@ -44,7 +44,7 @@ class Product < ApplicationRecord
 end
 ```
 
-Associated records won't be touched but changes will be tracked using the following helpers:
+Associated records will be synced and chances will be tracked using the following helpers:
 ```ruby
 product.tags.map(&:name) => ['New']
 product.tag_list => 'New'
