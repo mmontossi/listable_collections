@@ -88,7 +88,7 @@ In some cases you may need to run some logic after changes, you can use callback
 ```ruby
 class Product < ActiveRecord::Base
 
-  serialize :sizes, Array
+  ...
 
   listify :sizes, after_add: :size_added, after_remove: :size_removed
 
