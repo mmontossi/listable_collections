@@ -6,7 +6,7 @@ module ListableCollections
 
         module ClassMethods
 
-          def list(*args)
+          def listify(*args)
             options = args.extract_options!
             builder = Builder.new(self)
             args.each do |attribute|

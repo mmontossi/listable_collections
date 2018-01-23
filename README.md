@@ -9,11 +9,12 @@ Makes collections accessible from a string list in rails.
 
 ## Why
 
-I did this gem to:
+We did this gem to:
 
 - Easily manage collections from input text field.
 - Track changes like dirty module in activerecord.
 - Have callbacks like has_many associations.
+- Automatically handle join models creation/deletion.
 
 ## Install
 
@@ -33,28 +34,30 @@ $ bundle
 
 If you want to list a has_many association:
 ```ruby
-class Shop < ActiveRecord::Base
+class Product < ApplicationRecord
 
-  has_many :products
+  has_many :tagizations
+  has_many :tags, through: :tagizations
 
-  list :products, attribute: :name
+  listify :products, by: :name
 
 end
 ```
 
 Associated records won't be touched but changes will be tracked using the following helpers:
 ```ruby
-shop.products.map(&:name) => ['iPhone']
-shop.product_list => 'iPhone'
+product.tags.map(&:name) => ['New']
+product.tag_list => 'New'
 
-shop.product_list = 'iPod,iMac'
-shop.products.map(&:name) => ['iPhone']
+product.tag_list = 'Natural'
+product.tagizations.reject(&:marked_for_destruction?).map(&:tag).map(&:name) => ['Natural']
+product.tagizations.select(&:marked_for_destruction?).map(&:tag).map(&:name) => ['New']
 
-shop.added_products_to_list => ['iMac']
-shop.removed_products_from_list => ['iPod']
+product.added_tags_to_list => ['Natural']
+product.removed_tags_from_list => ['New']
 ```
 
-NOTE: Is recommended to do this check before save all at once and not dynamically to avoid multiple queries.
+NOTE: The gem will handle automatically creation/deletion if you use a has many through association.
 
 ### Attributes
 
@@ -64,7 +67,7 @@ class Product < ActiveRecord::Base
 
   serialize :sizes, Array
 
-  list :sizes
+  listify :sizes
 
 end
 ```
@@ -83,17 +86,17 @@ product.removed_sizes_from_list => ['64GB']
 
 In some cases you may need to run some logic after changes, you can use callbacks for it:
 ```ruby
-class Shop < ActiveRecord::Base
+class Product < ActiveRecord::Base
 
-  has_many :product
+  serialize :sizes, Array
 
-  list :products, attribute: :name, after_add: :product_added, after_remove: :product_removed
+  listify :sizes, after_add: :size_added, after_remove: :size_removed
 
-  def product_added(name)
+  def size_added(name)
     # Some logic
   end
 
-  def product_removed(name)
+  def size_removed(name)
     # Some logic
   end
 
@@ -104,7 +107,7 @@ end
 
 Any issue, pull request, comment of any kind is more than welcome!
 
-I will mainly ensure compatibility to Rails, AWS, PostgreSQL, Redis, Elasticsearch and FreeBSD. 
+We will mainly ensure compatibility to Rails, AWS, PostgreSQL, Redis, Elasticsearch and FreeBSD. 
 
 ## Credits
 

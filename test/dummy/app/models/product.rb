@@ -1,8 +1,10 @@
-class Product < ApplicationRecord
+class Product < ActiveRecord::Base
 
-  belongs_to :shop
+  has_many :tagizations
+  has_many :tags, through: :tagizations
 
-  list :sizes, after_add: :size_added, after_remove: :size_removed
+  listify :sizes, after_add: :size_added, after_remove: :size_removed
+  listify :tags, by: :name
 
   serialize :sizes, Array
 
