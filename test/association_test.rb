@@ -2,29 +2,34 @@ require 'test_helper'
 
 class AssociationTest < ActiveSupport::TestCase
 
-  test 'has many through' do
-    product = Product.create
-    product.tags.create name: 'Natural'
-    assert_equal 'Natural', product.tag_list
+  test 'through' do
+    assert_difference 'Tagization.count', +1 do
+      product.new_tag_list = 'Cellphone'
+    end
+    assert_equal 'Cellphone', product.tag_list
 
-    sale = Tag.new(name: 'New')
-    product.tags << sale
-    assert_equal 'Natural,New', product.tag_list
-    added_tag_names = product.tagizations.reject(&:marked_for_destruction?).map(&:tag).map(&:name)
-    assert_equal ['Natural', 'New'], added_tag_names
-    removed_tag_names = product.tagizations.select(&:marked_for_destruction?).map(&:tag).map(&:name)
-    assert_equal [], removed_tag_names
-    assert_equal [], product.added_tags_to_list
-    assert_equal [], product.removed_tags_from_list
+    assert_difference 'Tagization.count', -1 do
+      product.tag_ids = []
+    end
+    assert_equal '', product.tag_list
+  end
 
-    product.tag_list = 'Light'
-    assert_equal 'Light', product.tag_list
-    added_tag_names = product.tagizations.reject(&:marked_for_destruction?).map(&:tag).map(&:name)
-    assert_equal ['Light'], added_tag_names
-    removed_tag_names = product.tagizations.select(&:marked_for_destruction?).map(&:tag).map(&:name)
-    assert_equal ['Natural', 'New'], removed_tag_names
-    assert_equal ['Light'],  product.added_tags_to_list
-    assert_equal ['Natural', 'New'], product.removed_tags_from_list
+  test 'regular' do
+    assert_difference 'Vendor.count', +1 do
+      product.new_vendor_list = 'John'
+    end
+    assert_equal 'John', product.vendor_list
+
+    assert_difference 'Vendor.count', -1 do
+      product.vendor_ids = []
+    end
+    assert_equal '', product.vendor_list
+  end
+
+  private
+
+  def product
+    @product ||= Product.create
   end
 
 end

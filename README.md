@@ -32,14 +32,14 @@ $ bundle
 
 ### Associations
 
-If you want to list a has_many association:
+If you want to listize a has_many association:
 ```ruby
 class Product < ApplicationRecord
 
   has_many :tagizations
   has_many :tags, through: :tagizations
 
-  listify :tags, by: :name
+  listize :tags, by: :name
 
 end
 ```
@@ -67,7 +67,7 @@ class Product < ActiveRecord::Base
 
   serialize :sizes, Array
 
-  listify :sizes
+  listize :sizes
 
 end
 ```
@@ -82,25 +82,6 @@ product.sizes => ['32GB','128GB']
 
 product.added_sizes_to_list => ['128GB']
 product.removed_sizes_from_list => ['64GB']
-```
-
-In some cases you may need to run some logic after changes, you can use callbacks for it:
-```ruby
-class Product < ActiveRecord::Base
-
-  ...
-
-  listify :sizes, after_add: :size_added, after_remove: :size_removed
-
-  def size_added(name)
-    # Some logic
-  end
-
-  def size_removed(name)
-    # Some logic
-  end
-
-end
 ```
 
 ## Contributing
